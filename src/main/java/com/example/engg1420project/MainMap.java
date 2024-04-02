@@ -76,7 +76,7 @@ public class MainMap extends Application {
         player1 = new Player("/images/player.png", CELL_SIZE);
         player2 = new Player("/images/player.png", CELL_SIZE);
         grid.add(player1.getImageView(), 0, 0);
-        grid.add(player2.getImageView(), 1, 1);
+        grid.add(player2.getImageView(), 1, 2);
 
         // Create the scene and set it to the stage
         Scene scene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT);
