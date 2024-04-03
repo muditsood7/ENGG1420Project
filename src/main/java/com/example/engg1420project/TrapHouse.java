@@ -1,8 +1,8 @@
 package com.example.engg1420project;
 
 public class TrapHouse {
-    private int moneyLost;
-    private int powerLost;
+    private static int moneyLost;
+    private static int powerLost;
 
     public TrapHouse (int moneyLost, int powerLost){
         this.moneyLost = moneyLost;
