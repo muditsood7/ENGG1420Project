@@ -29,6 +29,10 @@ public class MainMap extends Application {
     private Player player2;
     private Label turnLabel;
 
+    private Scoreboard scoreboard;
+    private PlayerStatus playerStatus1;
+    private PlayerStatus playerStatus2;
+
     // Getter method for GRID_SIZE
     public static int getGRID_SIZE() {
         return GRID_SIZE;
@@ -51,6 +55,10 @@ public class MainMap extends Application {
         // Create the grid and add it to the root
         GridPane grid = createGrid();
         root.getChildren().add(grid);
+
+        scoreboard = new Scoreboard();
+        playerStatus1 = new PlayerStatus();
+        playerStatus2 = new PlayerStatus();
 
         treasureHouses[0] = TreasureHouse.spawnTreasure(grid, "Diamond Ring", 20);
         treasureHouses[1] = TreasureHouse.spawnTreasure(grid, "Jewel Encrusted Sword", 30);
@@ -77,6 +85,29 @@ public class MainMap extends Application {
         player2 = new Player("/images/player.png", CELL_SIZE);
         grid.add(player1.getImageView(), 0, 0);
         grid.add(player2.getImageView(), 1, 2);
+
+        // Create the scoreboard
+        scoreboard = new Scoreboard();
+        scoreboard.addPlayer("Player 1");
+        scoreboard.addPlayer("Player 2");
+
+        // Create player statuses
+        playerStatus1 = scoreboard.getPlayerStatus("Player 1");
+        playerStatus2 = scoreboard.getPlayerStatus("Player 2");
+
+        Label scoreboardLabel = new Label("Scoreboard");
+        Label playerStatus1Label = new Label("Player 1 Status");
+        Label playerStatus2Label = new Label("Player 2 Status");
+
+        // Display the scoreboard and player statuses on the map
+        root.getChildren().add(scoreboardLabel);
+        root.getChildren().add(playerStatus1Label);
+        root.getChildren().add(playerStatus2Label);
+
+        // Position the components as needed
+        StackPane.setAlignment(scoreboardLabel, Pos.TOP_LEFT);
+        StackPane.setAlignment(playerStatus1Label, Pos.BOTTOM_LEFT);
+        StackPane.setAlignment(playerStatus2Label, Pos.BOTTOM_RIGHT);
 
         // Create the scene and set it to the stage
         Scene scene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT);
