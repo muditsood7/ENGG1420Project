@@ -15,7 +15,7 @@ public class Battle {
         this.player2Money = player2Money;
     }
 
-    public void moneyAndPowerTransfer (int player1Strength, int player2Strength, int player1Money, int player2Money) {
+    public void moneyAndPowerTransfer () {
         if (player1Strength > player2Strength) {
             player1Money += ((player1Strength - player2Strength)/(player1Strength + player2Strength)) * player2Money;
             player1Strength = player1Strength - player2Strength;
@@ -26,5 +26,7 @@ public class Battle {
             player1Strength = 0;
         }
     }
+
+
 
 }

@@ -6,9 +6,13 @@ import javafx.scene.input.KeyEvent;
 
 public class PlayerMovement {
     private Player player1;
+    //private Player player1;
     private Player player2;
     private boolean player1Turn = true;
     private Label turnLabel;
+
+    //Player player1 = new Player("player.png", 80, 0, 0);
+
 
     public PlayerMovement(Player player1, Player player2, Label turnLabel) {
         this.player1 = player1;
