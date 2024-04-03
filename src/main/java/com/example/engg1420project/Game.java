@@ -1,8 +1,12 @@
 package com.example.engg1420project;
 import java.util.Scanner;
 public class Game {
+
+
     public static void main(String[] args) {
-        Player player = new Player("Player", 100);
+
+
+        Player player = new Player("Player", 80,100, 50 );
 
         Weapon sword = new Weapon("Sword", 50, 10);
         Weapon hammer = new Weapon("Hammer", 70, 15);

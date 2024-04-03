@@ -21,7 +21,7 @@ public class Player {
 
     private Map<String, Weapon> inventory;
 
-    public Player(String imagePath, int cellSize, int initalMoney) {
+    public Player(String imagePath, int cellSize, int initalMoney, int intialPower) {
         this.cellSize = cellSize;
 
         // Load player image
@@ -36,8 +36,10 @@ public class Player {
 
 
         money = initalMoney;
+        power = intialPower;
         inventory = new HashMap<>();
     }
+
 
     //method to get the imageview of the player
     public ImageView getImageView() {

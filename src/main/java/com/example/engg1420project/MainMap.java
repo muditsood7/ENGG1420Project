@@ -81,8 +81,8 @@ public class MainMap extends Application {
         grid.add(landmarkImageView, 9, 9);
 
         // Add players
-        player1 = new Player("/images/player.png", CELL_SIZE);
-        player2 = new Player("/images/player.png", CELL_SIZE);
+        player1 = new Player("/images/player.png", CELL_SIZE, 10, 15 );
+        player2 = new Player("/images/player.png", CELL_SIZE, 10, 15 );
         grid.add(player1.getImageView(), 0, 0);
         grid.add(player2.getImageView(), 1, 2);
 
