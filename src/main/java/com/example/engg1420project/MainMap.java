@@ -99,6 +99,13 @@ public class MainMap extends Application {
         Label playerStatus1Label = new Label("Player 1 Status");
         Label playerStatus2Label = new Label("Player 2 Status");
 
+        scoreboardLabel.setFont(Font.font("Arial", FontWeight.BOLD, 18));
+        scoreboardLabel.setTextFill(Color.WHITE);
+        playerStatus1Label.setFont(Font.font("Arial", FontWeight.BOLD, 18));
+        playerStatus1Label.setTextFill(Color.WHITE);
+        playerStatus2Label.setFont(Font.font("Arial", FontWeight.BOLD, 18));
+        playerStatus2Label.setTextFill(Color.WHITE);
+
         // Display the scoreboard and player statuses on the map
         root.getChildren().add(scoreboardLabel);
         root.getChildren().add(playerStatus1Label);
