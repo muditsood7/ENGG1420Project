@@ -6,6 +6,9 @@ import javafx.scene.layout.GridPane;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.example.engg1420project.TrapHouse.*;
+import static com.example.engg1420project.TrapHouse.getPowerLost;
+
 public class Player {
     private ImageView imageView;
     private int cellSize;
@@ -82,9 +85,9 @@ public class Player {
     public void enterTrapHouse(TrapHouse trapHouse) {
 
         System.out.println("Entering Trap house....");
-    money -=TrapHouse.getMoneyLost();
-    power -=TrapHouse.getPowerLost();
-        System.out.println("Lost money: "+TrapHouse.getMoneyLost()+"Lost power: "+TrapHouse.getPowerLost());
+        money = money - getMoneyLost();
+        power = power - getPowerLost();
+        System.out.println("Lost money: "+ getMoneyLost()+"Lost power: "+ getPowerLost());
 }
     public void buyWeapon(Weapon weapon) {
         if (money >= weapon.getPrice()) {
