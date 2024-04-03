@@ -3,6 +3,11 @@ package com.example.engg1420project;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import java.util.HashMap;
+import java.util.Map;
+
+import static com.example.engg1420project.TrapHouse.*;
+import static com.example.engg1420project.TrapHouse.getPowerLost;
 
 public class Player {
     private ImageView imageView;
@@ -11,7 +16,12 @@ public class Player {
     private int x; // Current x position of the player
     private int y; // Current y position of the player
 
-    public Player(String imagePath, int cellSize) {
+    private int money;
+    private int power;
+
+    private Map<String, Weapon> inventory;
+
+    public Player(String imagePath, int cellSize, int initalMoney) {
         this.cellSize = cellSize;
 
         // Load player image
@@ -23,11 +33,17 @@ public class Player {
         //initial x and y positions of the player
         x = 0;
         y = 0;
+
+
+        money = initalMoney;
+        inventory = new HashMap<>();
     }
+
     //method to get the imageview of the player
     public ImageView getImageView() {
         return imageView;
     }
+
     //methods to move player in specific directions
     public void moveUp() {
         if (y > 0) {
@@ -62,5 +78,44 @@ public class Player {
         //sets the column index and row index of the player
         GridPane.setColumnIndex(imageView, x);
         GridPane.setRowIndex(imageView, y);
+
+
     }
+
+    public void enterTrapHouse(TrapHouse trapHouse) {
+
+        System.out.println("Entering Trap house....");
+        money = money - getMoneyLost();
+        power = power - getPowerLost();
+        System.out.println("Lost money: "+ getMoneyLost()+"Lost power: "+ getPowerLost());
+}
+    public void buyWeapon(Weapon weapon) {
+        if (money >= weapon.getPrice()) {
+            money -= weapon.getPrice();
+            inventory.put(weapon.getName(), weapon);
+            System.out.println("Bought " + weapon.getName() + " for $" + weapon.getPrice());
+        } else {
+            System.out.println("Insufficient funds to buy " + weapon.getName());
+        }
+    }
+
+
+    // method to enter trap house
+
+
+
+    // method to interact with wall house
+    public void interactWithWallHouse(){
+        System.out.println("You encountered a wall house. No assets are inside.");
+    }
+
+    // Method to get player's money
+    public int getMoney() {
+        return money;
+    }
+
+    public int getPower(){
+        return power;
+    }
+
 }
