@@ -13,8 +13,8 @@ public class Player {
     private ImageView imageView;
     private int cellSize;
 
-    private int x; // Current x position of the player
-    private int y; // Current y position of the player
+    public int x; // Current x position of the player
+    public int y; // Current y position of the player
 
     private int money;
     private int power;
