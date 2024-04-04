@@ -15,6 +15,9 @@ import javafx.stage.Stage;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Font;
 import javafx.geometry.Pos;
+import javafx.scene.control.Button;
+
+
 
 import java.util.Random;
 
@@ -28,6 +31,10 @@ public class MainMap extends Application {
     private Player player1;
     private Player player2;
     private Label turnLabel;
+    int player1Strength;
+    int player2Strength;
+    int player1Money;
+    int player2Money;
 
     private Scoreboard scoreboard;
     private PlayerStatus playerStatus1;
@@ -81,8 +88,8 @@ public class MainMap extends Application {
         grid.add(landmarkImageView, 9, 9);
 
         // Add players
-        player1 = new Player("/images/player.png", CELL_SIZE);
-        player2 = new Player("/images/player.png", CELL_SIZE);
+        player1 = new Player("/images/player.png", CELL_SIZE, 0,0);
+        player2 = new Player("/images/player.png", CELL_SIZE, 0, 0);
         grid.add(player1.getImageView(), 0, 0);
         grid.add(player2.getImageView(), 1, 2);
 
@@ -140,6 +147,23 @@ public class MainMap extends Application {
         // Initialize player movement
         PlayerMovement playerMovement = new PlayerMovement(player1, player2, turnLabel);
         scene.setOnKeyPressed(playerMovement::handleKeyPress);
+
+        // Add button for battle
+        Button battleButton = new Button("Start Battle");
+        battleButton.setOnAction(event -> startBattle());
+
+        // Add the button to the root stack pane
+        root.getChildren().add(battleButton);
+
+        // Position the button as needed
+        StackPane.setAlignment(battleButton, Pos.BOTTOM_CENTER);
+    }
+
+    private void startBattle() {
+        Battle battle =  new Battle(player1Strength, player2Strength, player1Money, player2Money);
+        if ((Math.abs(player1.x - player2.x) == 1) && (Math.abs(player1.y - player2.y) == 1)) {
+            battle.moneyAndPowerTransfer();
+        }
     }
 
     // Method to create the grid
