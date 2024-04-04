@@ -1,12 +1,11 @@
 package com.example.engg1420project;
 
-import java.util.HashMap;
-import java.util.Map;
+
 
 class Weapon {
-    private String name;
-    private int price;
-    private int attackPower;
+    private final String name;
+    private final int price;
+    private final int attackPower;
 
     public Weapon(String name, int price, int attackPower) {
         this.name = name;

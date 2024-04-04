@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class Game {
 
+
     public static void main(String[] args) {
         // Creating player with default name player, initial money of 100, initial power 50
         Player player = new Player("Player", 80, 100, 50);
@@ -14,7 +15,9 @@ public class Game {
 
         // Display available weapons in the market
         System.out.println("Available Weapons in the Market:");
+        // gets list of available weapons from market
         List<Weapon> availableWeapons = marketHouse.getAvailableWeapons();
+        // loop through each weapon and display details
         for (int i = 0; i < availableWeapons.size(); i++) {
             Weapon weapon = availableWeapons.get(i);
             System.out.println((i + 1) + ". " + weapon.getName() + " - $" + weapon.getPrice() +
@@ -26,7 +29,7 @@ public class Game {
         Scanner scanner = new Scanner(System.in);
         int choice = scanner.nextInt();
 
-        // Validates the choice and buys the selected weapon
+        // calls buy weapon method depending on choice of player
         if (choice >= 1 && choice <= availableWeapons.size()) {
             Weapon selectedWeapon = availableWeapons.get(choice - 1);
             player.buyWeapon(selectedWeapon);
