@@ -80,6 +80,13 @@ public class MainMap extends Application {
         for (int i = 0; i < random.nextInt(5); i++)
             Walls.spawnWalls(grid);
 
+        // Spawn markets
+        //MarketHouse.spawnMarkets(grid);
+
+        // Spawning traphouses
+        TrapHouse.spawnTraps(grid);
+
+
         // Load and add the landmark image at position (9, 9)
         Image landmarkImage = new Image(getClass().getResource("/images/landmark.png").toString());
         ImageView landmarkImageView = new ImageView(landmarkImage);
@@ -157,6 +164,9 @@ public class MainMap extends Application {
 
         // Position the button as needed
         StackPane.setAlignment(battleButton, Pos.BOTTOM_CENTER);
+
+
+
     }
 
     private void startBattle() {
