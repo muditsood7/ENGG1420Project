@@ -84,6 +84,7 @@ public class Player {
 
     }
 
+    // method to enter trap house and handle consequences for entering trap house
     public void enterTrapHouse(TrapHouse trapHouse) {
 
         System.out.println("Entering Trap house....");
@@ -91,6 +92,8 @@ public class Player {
         power = power - getPowerLost();
         System.out.println("Lost money: "+ getMoneyLost()+"Lost power: "+ getPowerLost());
 }
+
+    // method to buy a weapon
     public void buyWeapon(Weapon weapon) {
         if (money >= weapon.getPrice()) {
             money -= weapon.getPrice();
@@ -116,6 +119,7 @@ public class Player {
         return money;
     }
 
+    // method to get players power
     public int getPower(){
         return power;
     }
